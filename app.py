@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 
-import spotify, spotipy
+import app, spotipy
 from spotipy.oauth2 import SpotifyOAuth
-from flask import Flask, url_for, session, request, redirect
+from flask import Flask, url_for, session, request, redirect, render_template
 import json
 import time
 import pandas as pd
@@ -13,7 +13,12 @@ app = Flask(__name__)
 app.secret_key = 'SOMETHING-RANDOM'
 app.config['SESSION_COOKIE_NAME'] = 'spotify-login-session'
 
+
 @app.route('/')
+def index():
+    return render_template('index.html')
+
+@app.route('/spotify')
 def login():
     sp_oauth = create_spotify_oauth()
     auth_url = sp_oauth.get_authorize_url()
@@ -90,5 +95,5 @@ def create_spotify_oauth():
             redirect_uri=url_for('authorize', _external=True),
             scope="user-library-read")
 
-# if __name__ == '__main__':
-#     app(debug=True)
+if __name__ == '__main__':
+    app.run(debug=True)
