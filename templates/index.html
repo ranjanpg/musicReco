@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Music Recco</title>
+{% endblock %}
+
+{% block body %}
+<div id="musicReco" class="vw-100 vh-100 text-white container">
+    <div
+        class="d-flex flex-column justify-content-evenly align-items-center w-50 mx-auto h-100 text-center">
+        <h1 class="display-1 my-2 font-monospace">
+            Music Recco
+        </h1>
+        <p>Curated Playlist My LLM</p>
+        <button
+            class="btn btn-lg btn-light my-2 d-flex justify-content-between align-items-center">
+            <p class="mx-2">
+                Sign In Using
+            </p>
+            <i
+                class="bi bi-spotify d-flex justify-content-center align-items-center h-100 mx-2"></i>
+        </button>
+    </div>
+</div>
+{% endblock %}
